@@ -14,6 +14,7 @@ export class ChildComponent implements OnInit {
   @Output()
   public clickOnName:EventEmitter<{count:number,tag:string}> = new EventEmitter();
 
+  public places: myRestoran;
 
   constructor() { }
 
