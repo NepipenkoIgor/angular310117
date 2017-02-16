@@ -1,4 +1,4 @@
-<div *ngFor="let user of users | async | filter:searchTerm; let i = index; let isEven=even"
+<div *ngFor="let user of users$ | async | filter:search; let i = index; let isEven=even"
      [ngClass]="{'even_line':isEven}">
   {{i+1}}. <img *ngIf="user.photo" [ngClass]="{avatar:true}" [src]="user.photo">
   {{user.firstName | uppercase}} {{user.surname | uppercase}}

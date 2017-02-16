@@ -1,6 +1,7 @@
 import {
   Component, ViewChild, ElementRef, AfterViewInit, ComponentRef,
-  ViewContainerRef, ComponentFactoryResolver, ComponentFactory, DoCheck
+  ViewContainerRef, ComponentFactoryResolver, ComponentFactory,
+  DoCheck, Inject
 } from '@angular/core';
 
 import {ChildComponent} from './child/child.component'
@@ -14,7 +15,7 @@ interface Type<T> extends Function {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements AfterViewInit, DoCheck {
   public title: string = 'app works!';
@@ -40,12 +41,17 @@ export class AppComponent implements AfterViewInit, DoCheck {
   @ViewChild('container', {read: ViewContainerRef})
   public container: ViewContainerRef;
 
-  public constructor(private _componentResolver: ComponentFactoryResolver) {
+  public constructor(
+    private _componentResolver: ComponentFactoryResolver,
+                     @Inject('SizeService') private _sizeService: any
+  ) {
     this.profile = {
       name: 'Igor',
       surname: 'Nepipenko',
       age: 30
     }
+
+    this._sizeService.run();
 
   }
 
