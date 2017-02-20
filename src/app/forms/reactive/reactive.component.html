@@ -1,0 +1,40 @@
+<!--<input type="text" [formControl]="name">-->
+<!--{{name.valueChanges | async}}-->
+<!--{{name.valid}}-->
+
+<!--<form [formGroup]="formModel">-->
+<!--<input type="text" formControlName="name">-->
+<!--<input type="text" [formControl]="formModel.controls['ssn']">-->
+<!--</form>-->
+<!--{{ formModel.value | json}}-->
+<!--{{ formModel.valid }}-->
+
+
+<form [formGroup]="formModel" (ngSubmit)="submit(formModel.value)">
+  <div>Username:</div>
+  <input type="text" formControlName="username">
+  <div>SSN:</div>
+  <input type="text" formControlName="ssn">
+  <div formGroupName="passwordGroup">
+    <div>Password:</div>
+    <input type="password" formControlName="password">
+    <div>Confirm password:</div>
+    <input type="password" formControlName="pconfirm">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+{{formModel.value | json }}
+{{formModel.valid }}
+
+<!--<form [formGroup]="formArrayModel">-->
+  <!--<ul formGroupName="emails">-->
+    <!--<li *ngFor="let e of formArrayModel.get('emails').controls; let i =index">-->
+      <!--<input type="text" formControlName={{i}}>-->
+    <!--</li>-->
+
+  <!--</ul>-->
+
+  <!--<button (click)="addEmail()">Add Email</button>-->
+<!--</form>-->
+<!--{{ formArrayModel.value | json}}-->

@@ -1,0 +1,35 @@
+<!--<h1>FormControl</h1>-->
+<!--&lt;!&ndash; new FormControl()&ndash;&gt;-->
+<!--<input type="text" ngModel #c="ngModel" required minlength="4">-->
+<!--{{c.valueChanges | async}}-->
+<!--{{c.valid}}-->
+
+<!--<h1>FormGroup</h1>-->
+
+<!--<form #f="ngForm">-->
+  <!--<input type="text" name="name" ngModel required>-->
+  <!--<input type="text" name="ssn" ngModel>-->
+<!--</form>-->
+
+<!--{{f.value | json }}-->
+<!--{{f.valid }}-->
+
+
+
+<form #f="ngForm" (ngSubmit)="submit(f.value)">
+  <div>Username:</div>
+  <input type="text" name="name" namevalidator ngModel required>
+  <div>SSN:</div>
+  <input type="text" name="ssn" ssn ngModel>
+  <div ngModelGroup="passwordGroup" asyncequal>
+    <div>Password:</div>
+    <input type="password" name="password" ngModel required>
+    <div>Confirm password:</div>
+    <input type="password" name="pconfirm" ngModel required>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+{{f.value | json }}
+{{f.valid }}
+
