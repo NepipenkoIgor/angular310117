@@ -1,0 +1,42 @@
+<!--<h1>-->
+<!--{{profile?.name}} {{profile?.surname}}-->
+<!--</h1>-->
+<!--[ ] data -> view -->
+<!--( ) view -> data -->
+<!--<p>-->
+  <!--Count of your clicks {{count}}-->
+<!--</p>-->
+
+<div>
+  {{asyncTime | async | date:'hh:mm:ss'}}
+</div>
+
+<p>{{cost | currency:'USD':true:'2.1-1'}}</p>
+
+
+<input [value]="inputValue" courseLog type="text" (input)="inputValue = $event.target.value"
+       #field>
+<!--{{inputValue}}-->
+<!--<p [innerHtml]="text" [style.color]="color"></p>-->
+<!--<div [style.width.px]="500" [style.height.px]="500"></div>-->
+
+<!--<course-bind-me [prop]="prop" ></course-bind-me>-->
+
+
+<div #container></div>
+
+<!--<course-child [name]="inputValue"-->
+  <!--(clickOnName)="count=count+$event.count"></course-child>-->
+
+<course-user-list [searchTerm]="inputValue"></course-user-list>
+
+<div ngNonBindable>
+  This is {{content}}
+</div>
+
+<pre>
+  {{profile | json}}
+</pre>
+
+
+

@@ -6,3 +6,10 @@ type myRestoran = {
 interface A {
 
 }
+
+
+type User ={
+  firstName:string,
+  surname:string,
+  photo:string
+}

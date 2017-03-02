@@ -1,61 +1,40 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, OpaqueToken} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
-import {AppComponent} from './app.component';
-import {ChildComponent} from './child/child.component';
-import {BindMeComponent} from './bind-me/bind-me.component';
-import {LogDirective} from './log.directive';
-import {UserListComponent} from './user-list/user-list.component';
-import {FilterPipe} from './filter.pipe';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
-import {UserListService} from './user-list/user-list.service'
+import { routes } from './routes';
+import { UsersComponent } from './users/users.component'
 
-import {ViewportService} from './viewport.service'
-import {URL} from './config';
-import {FormsComponent} from './forms/forms.component';
-import {TemplateDrivenComponent} from './forms/template-driven/template-driven.component';
-import {ReactiveComponent} from './forms/reactive/reactive.component';
-console.log(URL)
+import { UsersResolverService } from './users-resolver.service';
+import { UserComponent } from './users/user/user.component'
+import { GuardService } from './guard.service';
 
-import {AsyncEqualValidator, NameValidator, SsnValidator} from './forms/template-driven/template-driven.component'
-// string
-// type
-// token
+import InfoModule from './info/info.module'
 
-@NgModule({
-  declarations: [
-    // AppComponent,
-    // ChildComponent,
-    // BindMeComponent,
-    // LogDirective,
-    // UserListComponent,
-    // FilterPipe
-    FormsComponent,
-    TemplateDrivenComponent,
-    ReactiveComponent,
-    AsyncEqualValidator, NameValidator, SsnValidator
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule
-  ],
-  // entryComponents: [ChildComponent],
-  // providers: [
-  //   {provide: UserListService, useClass: UserListService},
-  //   {provide: URL, useValue: 'http://learn.javascript.ru'},
-  //   ViewportService,
-  //   {
-  //     provide: 'SizeService', useFactory: (viewport: any) => {
-  //     return viewport.determineService()
-  //   }, deps: [ViewportService]
-  //   }
-  // ],
-  //bootstrap: [AppComponent]
-  bootstrap: [FormsComponent]
-})
+@NgModule(
+  {
+    declarations: [
+      AppComponent,
+      HomeComponent,
+      UsersComponent,
+      UserComponent,
+    ],
+    imports: [
+      BrowserModule,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpModule,
+      RouterModule.forRoot(routes),
+      InfoModule
+    ],
+    providers: [UsersResolverService, GuardService],
+    bootstrap: [AppComponent]
+  }
+)
 export class AppModule {
 }
