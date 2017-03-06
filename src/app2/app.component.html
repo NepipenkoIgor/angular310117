@@ -1,0 +1,10 @@
+<a [routerLink]="['']"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{exact:true}">Home</a>
+<a [routerLink]="['users/all']"
+  routerLinkActive="active">Users</a>
+<a [routerLink]="['info']"
+  routerLinkActive="active">Info</a>
+
+<router-outlet ></router-outlet>
+<router-outlet name="mymodal"></router-outlet>

@@ -23,5 +23,5 @@ import { RouterModule } from  '@angular/router'
     ]
   }
 )
-export default class InfoModule {
+export class InfoModule {
 }

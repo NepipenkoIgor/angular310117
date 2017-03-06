@@ -6,24 +6,35 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
 
-import { routes } from './config'
+import { routes } from './routes';
+import { UsersComponent } from './users/users.component'
+import { ChatComponent } from './chat/chat.component'
+
+import { UsersResolverService } from './users-resolver.service';
+import { UserComponent } from './users/user/user.component'
+import { GuardService } from './guard.service';
+
+import {InfoModule} from './info/info.module'
 
 @NgModule(
   {
     declarations: [
       AppComponent,
       HomeComponent,
-      ProfileComponent
+      UsersComponent,
+      UserComponent,
+      ChatComponent
     ],
     imports: [
       BrowserModule,
       FormsModule,
       ReactiveFormsModule,
       HttpModule,
-      RouterModule.forRoot(routes)
+      RouterModule.forRoot(routes),
+      //InfoModule
     ],
+    providers: [UsersResolverService, GuardService],
     bootstrap: [AppComponent]
   }
 )
