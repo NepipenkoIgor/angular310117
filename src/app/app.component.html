@@ -1,4 +1,4 @@
-<h1>Hi tests</h1>
-<a class="home" [routerLink]="['home']">Home</a>
-<a class="profile" [routerLink]="['profile']">Profile</a>
-<router-outlet></router-outlet>
+<app-switcher [formControl]="checkBox"></app-switcher>
+
+<app-default [profile]="profile1" ></app-default>
+<app-on-push [profile]="profile2" [items]="items" ></app-on-push>

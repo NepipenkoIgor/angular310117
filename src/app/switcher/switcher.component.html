@@ -1,0 +1,10 @@
+<span class="switch"
+  [ngStyle]="{'background-color': 'lightgrey', 'border-color': 'black'}"
+
+  [ngClass]="{ 'checked': checked,
+                   'switch-large': size === 'large',
+                   'switch-medium': size === 'medium',
+                   'switch-small': size === 'small'
+                 }">
+  <small [ngStyle]="{'background': 'green'}"></small>
+</span>

@@ -1,28 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { SwitcherComponent } from './switcher/switcher.component';
-import { DefaultComponent } from './default/default.component';
-import { OnPushComponent } from './on-push/on-push.component';
-import { ConnectService } from './connect.service';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
+import { routes } from './config'
 
 @NgModule(
   {
     declarations: [
       AppComponent,
-      SwitcherComponent,
-      DefaultComponent,
-      OnPushComponent,
+      HomeComponent,
+      ProfileComponent
     ],
     imports: [
       BrowserModule,
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      HttpModule,
+      RouterModule.forRoot(routes)
     ],
-    providers: [ConnectService],
     bootstrap: [AppComponent]
   }
 )
